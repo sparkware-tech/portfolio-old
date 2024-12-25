@@ -1,0 +1,186 @@
+/* Footer */
+@keyframes ballMoveSmall {
+  0% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(72px);
+  }
+  100% {
+    transform: translateX(-2px);
+  }
+}
+
+.underline-animation {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.underline-animation::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 0.25rem;
+  background-color: #ffffff; /* Change color as needed */
+  border-radius: 0.125rem; /* Adjust if needed */
+  z-index: 1;
+}
+
+.underline-animation::before {
+  content: " ";
+  position: absolute;
+  top: 2;
+  left: 0;
+  width: 0.5rem; /* Ball width */
+  height: 0.4rem; /* Ball height */
+  background-color: #2651b4; /* Ball color */
+  border-radius: 0.125rem;
+  animation: ballMoveSmall 10s infinite ease-in-out;
+  bottom: -2px; /* Position the ball on the underline */
+  z-index: 2;
+}
+
+/* Slide Show */
+.slide-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.static-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Place image behind the text */
+  animation: zoomEffect 10s ease-in-out infinite; /* Add zoom animation */
+}
+
+@keyframes zoomEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* Adjust the scale value as needed */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.main-title {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  z-index: 1;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.main-text {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  letter-spacing: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.typing-container {
+  position: absolute;
+  top: 48%;
+  text-align: center;
+  z-index: 2;
+}
+
+.typed-title {
+  color: white;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.cursor {
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ImageCarousel */
+.carousel {
+  overflow: hidden;
+  width: 100%; /* Adjust to the desired width */
+  white-space: nowrap;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  animation: scroll 20s linear infinite;
+}
+
+.carousel-image {
+  width: 100px; /* Adjust the width of your images */
+  height: 100px; /* Adjust the height of your images */
+  margin-right: 10px; /* Adjust the spacing between images */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Swiper Slides  */
+.mySwiper .swiper-pagination-bullet {
+  background: gray !important;
+  opacity: 0.7 !important;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+  background: rgb(23, 3, 78) !important;
+  opacity: 1 !important;
+}
+
+/* Prealoader */
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
